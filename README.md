@@ -1,20 +1,6 @@
-# Tari Crypto
+# Tari Crypto FFI Wrapper
 
-![](https://github.com/tari-project/tari-crypto/workflows/Security%20audit/badge.svg)
-![](https://github.com/tari-project/tari-crypto/workflows/Clippy/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/tari-project/tari-crypto/badge.svg?branch=main)](https://coveralls.io/github/tari-project/tari-crypto?branch=main)
-
-This crate is part of the [Tari Cryptocurrency](https://tari.com) project.
-
-Major features of this library include:
-
-- Pedersen commitments
-- Schnorr Signatures
-- Generic Public and Secret Keys
-- [Musig!](https://blockstream.com/2018/01/23/musig-key-aggregation-schnorr-signatures/) **NOT PRODUCTION READY**
-
-The `tari_crypto` crate makes heavy use of the excellent [Dalek](https://github.com/dalek-cryptography/curve25519-dalek)
-libraries. The default implementation for Tari ECC is the [Ristretto255 curve](https://ristretto.group).
+This is a WASM library wrapper for (Tari Crypto)[https://github.com/tari-project/tari-crypto]
 
 # Compiling to WebAssembly
 
