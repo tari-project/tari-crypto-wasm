@@ -1,0 +1,37 @@
+[package]
+name = "tari_crypto_wasm"
+description = "Tari Cryptography WASM library"
+authors = ["The Tari Development Community"]
+repository = "https://github.com/tari-project/tari"
+categories = ["cryptography"]
+homepage = "https://tari.com"
+readme = "README.md"
+license = "BSD-3-Clause"
+version = "0.17.0"
+edition = "2018"
+
+[dependencies]
+tari_utilities = { git = "https://github.com/tari-project/tari_utilities.git",  rev = "c06726322683c4671b93388b444d108103cd7b55", default-features = false, features = ["zero"] }
+tari_crypto = { git = "https://github.com/swvheerden/tari-crypto.git",  rev = "bd451c1d79a42510c38f73e24c6b24f88b5117ba" }
+blake2 = { version = "0.10", default-features = false  }
+digest = { version = "0.10", default-features = false }
+getrandom = { version = "0.2", features = ["js"]}
+rand_core = { version = "0.6" , default-features = false}
+serde = { version = "1.0"}
+serde-wasm-bindgen = { version = "0.4" }
+wasm-bindgen = { version = "^0.2", features = ["serde-serialize"]}
+
+[dev-dependencies]
+wasm-bindgen-test = { version = "0.3" }
+rand = { version = "0.8" }
+
+[lib]
+# Disable benchmarks to allow Criterion to take over
+bench = false
+crate-type = ["lib", "cdylib"]
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-Oz"]
+
+[package.metadata.cargo-machete]
+ignored = ["getrandom"]
