@@ -1,6 +1,6 @@
 // Copyright 2022 The Tari Project
 // SPDX-License-Identifier: BSD-3-Clause
-
+//! Tari-Crypto-Wasm
 #[macro_use]
 extern crate std;
 
