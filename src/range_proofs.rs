@@ -6,9 +6,6 @@
 use std::string::{String, ToString};
 
 use serde::{Deserialize, Serialize};
-use tari_utilities::hex::Hex;
-use wasm_bindgen::prelude::*;
-
 use tari_crypto::{
     extended_range_proof::ExtendedRangeProofService,
     range_proof::RangeProofService,
@@ -19,6 +16,8 @@ use tari_crypto::{
     },
     tari_utilities::hex::from_hex,
 };
+use tari_utilities::hex::Hex;
+use wasm_bindgen::prelude::*;
 
 /// Generated from [RangeProofFactory::create_proof]
 #[derive(Default, Serialize, Deserialize)]
@@ -186,10 +185,10 @@ impl Default for ExtendedRangeProofFactory {
 #[cfg(test)]
 mod test {
     use rand::rngs::OsRng;
+    use tari_crypto::{commitment::HomomorphicCommitmentFactory, keys::PublicKey, ristretto::RistrettoPublicKey};
     use wasm_bindgen_test::*;
 
     use super::*;
-    use tari_crypto::{commitment::HomomorphicCommitmentFactory, keys::PublicKey, ristretto::RistrettoPublicKey};
 
     #[wasm_bindgen_test]
     fn bulletproof_plus_fails_with_invalid_hex_input() {
