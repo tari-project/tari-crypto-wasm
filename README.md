@@ -1,4 +1,4 @@
-# Tari Crypto FFI Wrapper
+# Tari Crypto WASM Wrapper
 
 This is a WASM library wrapper for (Tari Crypto)[https://github.com/tari-project/tari-crypto]
 

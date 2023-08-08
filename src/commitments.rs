@@ -4,9 +4,6 @@
 //! Functions for creating and opening commitments
 
 use serde::{Deserialize, Serialize};
-use tari_utilities::hex::Hex;
-use wasm_bindgen::prelude::*;
-
 use tari_crypto::{
     commitment::HomomorphicCommitmentFactory,
     ristretto::{
@@ -15,6 +12,8 @@ use tari_crypto::{
         RistrettoSecretKey,
     },
 };
+use tari_utilities::hex::Hex;
+use wasm_bindgen::prelude::*;
 
 /// Returned from [commit()]
 #[derive(Default, Serialize, Deserialize)]
@@ -84,10 +83,10 @@ pub fn opens(key: &str, value: u64, commitment: &str) -> bool {
 #[cfg(test)]
 mod test {
     use rand::rngs::OsRng;
+    use tari_crypto::keys::SecretKey;
     use wasm_bindgen_test::*;
 
     use super::*;
-    use tari_crypto::keys::SecretKey;
 
     mod commit {
         use super::*;

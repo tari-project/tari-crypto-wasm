@@ -12,9 +12,6 @@ use blake2::{Blake2b, Digest};
 use digest::consts::U32;
 use rand_core::OsRng;
 use serde::{Deserialize, Serialize};
-use tari_utilities::hex::{from_hex, Hex};
-use wasm_bindgen::prelude::*;
-
 use tari_crypto::{
     keys::{PublicKey, SecretKey},
     ristretto::{
@@ -26,6 +23,8 @@ use tari_crypto::{
         RistrettoSecretKey,
     },
 };
+use tari_utilities::hex::{from_hex, Hex};
+use wasm_bindgen::prelude::*;
 
 /// Result of calling [check_signature] and [check_comsig_signature] and [check_comandpubsig_signature]
 #[derive(Debug, Serialize, Deserialize, Default)]
@@ -717,14 +716,14 @@ pub fn multiply_secret_keys(private_key_a: &str, private_key_b: &str) -> JsValue
 #[cfg(test)]
 mod test {
     use blake2::digest::Output;
-    use wasm_bindgen_test::*;
-
-    use super::*;
     use tari_crypto::{
         commitment::HomomorphicCommitmentFactory,
         signatures::{CommitmentAndPublicKeySignature, CommitmentSignature, SchnorrSignature},
         tari_utilities::{hex, ByteArray},
     };
+    use wasm_bindgen_test::*;
+
+    use super::*;
 
     const SAMPLE_CHALLENGE: &str =
         "Cormac was completely aware that he was being manipulated, but how he could not see.";

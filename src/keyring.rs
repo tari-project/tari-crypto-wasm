@@ -1,10 +1,9 @@
 // Copyright 2020. The Tari Project
 // SPDX-License-Identifier: BSD-3-Clause
 
-use rand_core::OsRng;
-use tari_utilities::hex::Hex;
-use wasm_bindgen::prelude::*;
 use std::collections::HashMap;
+
+use rand_core::OsRng;
 use tari_crypto::{
     commitment::HomomorphicCommitmentFactory,
     keys::PublicKey,
@@ -13,8 +12,10 @@ use tari_crypto::{
         RistrettoPublicKey,
         RistrettoSecretKey,
     },
-
 };
+use tari_utilities::hex::Hex;
+use wasm_bindgen::prelude::*;
+
 use crate::{
     commitments::CommitmentResult,
     key_utils::{sign_message_with_key, SignResult},
@@ -147,10 +148,10 @@ impl KeyRing {
 
 #[cfg(test)]
 mod test {
+    use tari_crypto::{keys::SecretKey, ristretto::RistrettoSchnorr};
     use wasm_bindgen_test::*;
 
     use super::*;
-    use tari_crypto::{keys::SecretKey, ristretto::RistrettoSchnorr};
 
     const SAMPLE_CHALLENGE: &str = "გამარჯობა";
 
